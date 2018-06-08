@@ -21,11 +21,16 @@ idx = zeros(size(X,1), 1);
 % Note: You can use a for-loop over the examples to compute this.
 %
 
-
-
-
-
-
+for i=1:size(X,1)
+  diff=Inf;
+  for j=1:K
+    temp = sumsq(X(i,:)-centroids(j,:));
+    if diff>temp
+      diff = temp;
+      idx(i,1)=j;
+    endif
+  endfor
+endfor
 
 % =============================================================
 
